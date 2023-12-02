@@ -3,7 +3,9 @@ var gamedata = {
     QiPerClick: 1,
     QiPerClickCost: 10,
     ManualAmount: 0,
-    ManualCost: 4
+    ManualCost: 4,
+    BreakthroughStage: 0,
+    BreakthroughCost: 1000
     
 }
 
@@ -33,7 +35,16 @@ function buyManual() {
     }
 }
 
+function Breakthrough() {
+    if (gamedata.Qi >= gamedata.BreakthroughCost) {
+        gamedata.Qi -= gamedata.BreakthroughCost
+        gamedata.BreakthroughStage += 1
+        gamedata.BreakthroughCost *= 2
+        document.getElementById("qicultivated").innerHTML = gamedata.Qi + " Qi"
+        document.getElementById("BreakthroughSystem").innerHTML = "Break through to realm" + gamedata.BreakthroughStage + "Cost: " + gamedata.BreakthroughCost + " Qi"
 
+    }
+}
 
 function PassiveQiGain() {
     gamedata.Qi += (gamedata.ManualAmount + gamedata.QiPerClick)
@@ -44,6 +55,9 @@ function PassiveQiGain() {
 function Save() {
     localStorage.setItem("SupahcultivatorSave", JSON.stringify(gamedata))
 }
+
+
+
 var mainGameLoop = window.setInterval(function() {
     PassiveQiGain() 
 }, 1000)
