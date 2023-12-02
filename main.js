@@ -4,6 +4,7 @@ var gamedata = {
     QiPerClickCost: 10,
     ManualAmount: 0,
     ManualCost: 4
+    
 }
 
 function cultivate() {
@@ -32,8 +33,14 @@ function buyManual() {
     }
 }
 
+function PassiveQiGain() {
+    gamedata.Qi += (gamedata.ManualAmount + gamedata.QiPerClick)
+    document.getElementById("qicultivated").innerHTML = gamedata.Qi + " Qi"
+    document.getElementById("PassiveGain").innerHTML = (gamedata.ManualAmount + gamedata.QiPerClick) + " Qi/s"
+}
+
 var mainGameLoop = window.setInterval(function() {
-    cultivate()
+    PassiveQiGain() 
 }, 1000)
 
 var saveGameLoop = window.localStorage(function() {
