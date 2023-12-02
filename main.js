@@ -33,19 +33,22 @@ function buyManual() {
     }
 }
 
+
+
 function PassiveQiGain() {
     gamedata.Qi += (gamedata.ManualAmount + gamedata.QiPerClick)
     document.getElementById("qicultivated").innerHTML = gamedata.Qi + " Qi"
     document.getElementById("PassiveGain").innerHTML = (gamedata.ManualAmount + gamedata.QiPerClick) + " Qi/s"
 }
 
+function Save() {
+    localStorage.setItem("SupahcultivatorSave", JSON.stringify(gamedata))
+}
 var mainGameLoop = window.setInterval(function() {
     PassiveQiGain() 
 }, 1000)
 
-var saveGameLoop = window.localStorage(function() {
-    localStorage.setItem("SupahcultivatorSave", JSON.stringify(gamedata))
-}, 15000)
+
 
 var savegame = JSON.parse(localStorage.getItem("SupahcultivatorSave"))
 if (savegame !== null) {
