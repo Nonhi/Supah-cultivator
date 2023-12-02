@@ -48,7 +48,9 @@ var mainGameLoop = window.setInterval(function() {
     PassiveQiGain() 
 }, 1000)
 
-
+var saveGameLoop = window.setInterval(function() {
+    localStorage.setItem("SupahcultivatorSave", JSON.stringify(gamedata))
+}, 30000)
 
 var savegame = JSON.parse(localStorage.getItem("SupahcultivatorSave"))
 if (savegame !== null) {
