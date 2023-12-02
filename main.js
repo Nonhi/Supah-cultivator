@@ -1,7 +1,9 @@
 var gamedata = {
     Qi: 0,
     QiPerClick: 1,
-    QiPerClickCost: 10
+    QiPerClickCost: 10,
+    ManualAmount: 0,
+    ManualCost: 4
 }
 
 function cultivate() {
@@ -19,6 +21,26 @@ function buyQiPerClick() {
     }   
 }
 
+function buyManual() {
+    if (gamedata.Qi >= gamedata.ManualCost) {
+        gamedata.Qi -= gamedata.ManualCost
+        gamedata.ManualAmount += 1
+        gamedata.ManualCost *= 2
+        document.getElementById("qicultivated").innerHTML = gamedata.Qi + " Qi"
+        document.getElementById("ManualUpgrade").innerHTML = "Buy cultivation manual (Level " + gamedata.ManualAmount + ") Cost: " + gamedata.ManualCost +" Qi"
+
+    }
+}
+
 var mainGameLoop = window.setInterval(function() {
     cultivate()
 }, 1000)
+
+var saveGameLoop = window.localStorage(function() {
+    localStorage.setItem("SupahcultivatorSave", JSON.stringify(gamedata))
+}, 15000)
+
+var savegame = JSON.parse(localStorage.getItem("SupahcultivatorSave"))
+if (savegame !== null) {
+    gamedata = savegame
+}
