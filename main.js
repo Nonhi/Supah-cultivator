@@ -1,59 +1,67 @@
-var gamedata = {
-    Qi: 0,
-    QiPerClick: 1,
-    QiPerClickCost: 10,
-    ManualAmount: 0,
-    ManualCost: 4,
-    BreakthroughStage: 0,
-    BreakthroughCost: 1000
-    
-}
+
+var Qi = 0
+var QiPerClick = 1
+var QiPerClickCost = 10
+var ManualAmount = 0
+var ManualCost = 4
+var BreakthroughStage = 1
+var BreakthroughCost = 1000   
+
 
 function cultivate() {
-    gamedata.Qi += gamedata.QiPerClick
-    document.getElementById("qicultivated").innerHTML = gamedata.Qi + " Qi"
+    Qi += QiPerClick
+    document.getElementById("qicultivated").innerHTML = Qi + " Qi"
 }
 
 function buyQiPerClick() {
-    if (gamedata.Qi >= gamedata.QiPerClickCost) { 
-        gamedata.Qi -= gamedata.QiPerClickCost
-        gamedata.QiPerClick += 1
-        gamedata.QiPerClickCost *= 2
-        document.getElementById("qicultivated").innerHTML = gamedata.Qi + " Qi"
-        document.getElementById("perClickUpgrade").innerHTML = "Strenghten soul realm (Level " + gamedata.QiPerClick + ") Cost: " + gamedata.QiPerClickCost + " Qi"
+    if (Qi >= QiPerClickCost) { 
+        Qi -= QiPerClickCost
+        QiPerClick += 1
+        QiPerClickCost *= 2
+        document.getElementById("qicultivated").innerHTML = Qi + " Qi"
+        document.getElementById("perClickUpgrade").innerHTML = "Strenghten soul realm (Level " + QiPerClick + ") Cost:" + QiPerClickCost + "Qi"
     }   
 }
 
 function buyManual() {
-    if (gamedata.Qi >= gamedata.ManualCost) {
-        gamedata.Qi -= gamedata.ManualCost
-        gamedata.ManualAmount += 1
-        gamedata.ManualCost *= 2
-        document.getElementById("qicultivated").innerHTML = gamedata.Qi + " Qi"
-        document.getElementById("ManualUpgrade").innerHTML = "Buy cultivation manual (Level " + gamedata.ManualAmount + ") Cost: " + gamedata.ManualCost +" Qi"
+    if (Qi >= ManualCost) {
+        Qi -= ManualCost
+        ManualAmount += 1
+        ManualCost *= 2
+        document.getElementById("qicultivated").innerHTML = Qi + " Qi"
+        document.getElementById("ManualUpgrade").innerHTML = "Buy cultivation manual (Level " + ManualAmount + ") Cost: " + ManualCost +" Qi"
 
     }
 }
 
 function Breakthrough() {
-    if (gamedata.Qi >= gamedata.BreakthroughCost) {
-        gamedata.Qi -= gamedata.BreakthroughCost
-        gamedata.BreakthroughStage += 1
-        gamedata.BreakthroughCost *= 2
-        document.getElementById("qicultivated").innerHTML = gamedata.Qi + " Qi"
-        document.getElementById("BreakthroughSystem").innerHTML = "Break through to realm" + gamedata.BreakthroughStage + "Cost: " + gamedata.BreakthroughCost + " Qi"
+    if (Qi >= BreakthroughCost) {
+        Qi -= BreakthroughCost
+        BreakthroughStage += 1
+        BreakthroughCost *= 2
+        document.getElementById("qicultivated").innerHTML = Qi + " Qi"
+        document.getElementById("BreakthroughSystem").innerHTML = "Break through to realm" + BreakthroughStage + "Cost: " + BreakthroughCost + " Qi"
 
     }
 }
 
 function PassiveQiGain() {
-    gamedata.Qi += (gamedata.ManualAmount + gamedata.QiPerClick)
-    document.getElementById("qicultivated").innerHTML = gamedata.Qi + " Qi"
-    document.getElementById("PassiveGain").innerHTML = (gamedata.ManualAmount + gamedata.QiPerClick) + " Qi/s"
+    Qi += ((ManualAmount + QiPerClick)*BreakthroughStage)
+    document.getElementById("qicultivated").innerHTML = Qi + " Qi"
+    document.getElementById("PassiveGain").innerHTML = ((ManualAmount + QiPerClick)*BreakthroughStage) + " Qi/s"
 }
 
 function Save() {
-    localStorage.setItem("SupahcultivatorSave", JSON.stringify(gamedata))
+    var gamesave = {
+        Qi: Qi,
+        QiPerClick: QiPerClick,
+        QiPerClickCost: QiPerClickCost,
+        ManualAmount: ManualAmount,
+        ManualCost: ManualCost,
+        BreakthroughStage: BreakthroughStage,
+        BreakthroughCost: BreakthroughCost,
+    }
+    localStorage.setItem("SupahcultivatorSave", JSON.stringify(gamesave))
 }
 
 
@@ -62,11 +70,26 @@ var mainGameLoop = window.setInterval(function() {
     PassiveQiGain() 
 }, 1000)
 
-var saveGameLoop = window.setInterval(function() {
-    localStorage.setItem("SupahcultivatorSave", JSON.stringify(gamedata))
-}, 30000)
 
-var savegame = JSON.parse(localStorage.getItem("SupahcultivatorSave"))
-if (savegame !== null) {
-    gamedata = savegame
+var saveGameLoop = window.setInterval(function() {
+    Save()
+})
+
+function loadgame() {
+    var savedgame = JSON.parse(localStorage.getItem("SupahcultivatorSave"))
+    if (typeof savedgame.Qi !== "undefined") Qi = savedgame.Qi;
+    if (typeof savedgame.QiPerClick !== "undefined") QiPerClick = savedgame.QiPerClick;
+    if (typeof savedgame.QiPerClickCost!== "undefined") QiPerClickCost = savedgame.QiPerClickCost;
+    if (typeof savedgame.ManualAmount !== "undefined") ManualAmount = savedgame.ManualAmount;
+    if (typeof savedgame.ManualCost!== "undefined") ManualCost = savedgame.ManualCost;
+    if (typeof savedgame.BreakthroughStage!== "undefined") BreakthroughStage = savedgame.BreakthroughStage;
+    if (typeof savedgame.BreakthroughCost!== "undefined") BreakthroughCost= savedgame.BreakthroughCost;
 }
+
+window.onload = function() {
+    loadgame();
+    document.getElementById("ManualUpgrade").innerHTML = "Buy cultivation manual (Level " + ManualAmount + ") Cost: " + ManualCost +" Qi";
+    document.getElementById("PassiveGain").innerHTML = (ManualAmount + QiPerClick) + " Qi/s";
+    document.getElementById("perClickUpgrade").innerHTML = "Strenghten soul realm (Level " + QiPerClick + ") Cost: " + QiPerClickCost + " Qi";
+    document.getElementById("BreakthroughSystem").innerHTML = "Break through to realm" + BreakthroughStage + "Cost: " + BreakthroughCost + " Qi";
+};
