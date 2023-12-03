@@ -73,7 +73,7 @@ var mainGameLoop = window.setInterval(function() {
 
 var saveGameLoop = window.setInterval(function() {
     Save()
-})
+},30000)
 
 function loadgame() {
     var savedgame = JSON.parse(localStorage.getItem("SupahcultivatorSave"))
