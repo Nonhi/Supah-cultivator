@@ -1,0 +1,95 @@
+body {
+    background-image: url(https://www.creativefabrica.com/wp-content/uploads/2023/05/08/Old-Vintage-Paper-Textured-background-Graphics-69135024-1.jpg);
+}
+
+.cultivate {
+   background-color: #ffd29f;
+   height: 50px;
+   width: 200px;
+   font-family: "Ink Free";
+   font-size: 40px;
+   font-weight: 600;
+   border-radius: 10px;
+}
+
+.qicultivated {
+    background-color: #ffd29f;
+    height: fit-content;
+    width: fit-content;
+    font-size:50px;
+    font-weight: normal;
+    border-radius: 10px;
+    outline-width: 2px;
+    outline-color: rgb(253, 229, 7);
+    outline-style: solid;
+}
+
+.perClickUpgrade {
+    background-color: #ffd29f;
+    height: fit-content;
+    width: fit-content;
+    font-family: "Ink Free";
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.ManualUpgrade {
+    background-color: #ffd29f;
+    height: fit-content;
+    width: fit-content;
+    font-family: "Ink Free";
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.BreakthroughSystem {
+    background-color: #ffd29f;
+    height: fit-content;
+    width: fit-content;
+    font-family: "Ink Free";
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.RebirthSystem {
+    background-color: #ffd29f;
+    height: fit-content;
+    width: fit-content;
+    font-family: "Ink Free";
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.ManualSave {
+    background-color: #ffd29f;
+    height: fit-content;
+    width: fit-content;
+    font-family: "Ink Free";
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.Datareset {
+    background-color: #ffd29f;
+    height: fit-content;
+    width: fit-content;
+    font-family: "Ink Free";
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.PassiveGain {
+    background-color: #ffd29f;
+    height: fit-content;
+    width: fit-content;
+    font-family: "Ink Free";
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 10px;
+}

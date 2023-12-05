@@ -4,14 +4,17 @@
     <meta charset="utf-8">
     <title>Supah cultivator</title>
     <script src="main.js" charset="utf=8" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="Style.css">
 </head>
 <body>
-    <p id="qicultivated">0 Qi</p>
-    <button onclick="cultivate()">Cultivate</button>
-    <button onclick="buyQiPerClick()" id="perClickUpgrade">Strengthen soul realm (Level 1) Cost: 10 Qi</button>
-    <button onclick="buyManual()" id="ManualUpgrade">Buy cultivation manual (Level 1) Cost: 4 Qi</button>
-    <button onclick="Breakthrough()" id="BreakthroughSystem">Breakthrough to the next realm Cost: 1000 Qi</button>
-    <button onclick="Save()" id="ManualSave">Save game</button>
-    <p id="PassiveGain">0 Qi/s</p>
+    <p id="qicultivated" class="qicultivated">0 Qi</p>
+    <button onclick="cultivate()" id="cultivate" title="Gives Qi" class="cultivate">Cultivate</button>   
+    <button onclick="buyQiPerClick()" id="perClickUpgrade" title="Increases amount of Qi gained by cultivating" class="perClickUpgrade">Strengthen soul realm (Level 1) Cost: 10 Qi</button>
+    <button onclick="buyManual()" id="ManualUpgrade" title="Adds 1 Qi gain/s per manual" class="ManualUpgrade">Buy cultivation manual (Level 1) Cost: 4 Qi</button>
+    <button onclick="Breakthrough()" id="BreakthroughSystem" title="Multiplies your passive Qi gain by its level" class="BreakthroughSystem">Breakthrough to the next realm Cost: 1000 Qi</button>
+    <button onclick="Rebirth()" id="RebirthSystem" title="Resets all of your upgrades(lol) and double everything by its level" class="RebirthSystem">Rebirth Cost: 10000 Qi</button>
+    <button onclick="Save()" id="ManualSave" title="Saves your data" class="ManualSave">Save game</button>
+    <button onclick ="resetData()" id = "Datareset" title="Resets your data" class="Datareset">Reset data</button>
+    <p id="PassiveGain" title="Shows how much Qi you gain every second" class="PassiveGain">0 Qi/s</p>
 </body>
 </html>
