@@ -4,12 +4,14 @@ body {
 
 .cultivate {
    background-color: #ffd29f;
-   height: 50px;
-   width: 200px;
+   height: fit-content;
+   width: fit-content;
    font-family: "Ink Free";
    font-size: 40px;
    font-weight: 600;
    border-radius: 10px;
+   position: relative;
+   top: 10px;
 }
 
 .qicultivated {
@@ -22,6 +24,39 @@ body {
     outline-width: 2px;
     outline-color: rgb(253, 229, 7);
     outline-style: solid;
+    position: relative;
+    top: 20px;
+    right: 3px;
+}
+
+.PassiveGain {
+    background-color: #ffd29f;
+    height: fit-content;
+    width: fit-content;
+    font-size: 50px;
+    font-weight: normal;
+    border-radius: 10px;
+    position: absolute;
+    left: 280px;
+    top: 20px;
+    outline-width: 2px;
+    outline-color: rgb(253, 97, 7);
+    outline-style: solid;
+}
+
+.Soulshards {
+    background-color: #ffd29f;
+    height: fit-content;
+    width: fit-content;
+    font-size: 50px;
+    font-weight: normal;
+    border-radius: 10px;
+    position: absolute;
+    left: 480px;
+    top: 20px;
+    outline-width: 2px;
+    outline-color: rgb(85, 253, 7);
+    outline-style: solid;
 }
 
 .perClickUpgrade {
@@ -32,6 +67,8 @@ body {
     font-size: 40px;
     font-weight: bold;
     border-radius: 10px;
+    position: relative;
+    top: 10px;
 }
 
 .ManualUpgrade {
@@ -42,6 +79,8 @@ body {
     font-size: 40px;
     font-weight: bold;
     border-radius: 10px;
+    position: relative;
+    top: 10px;
 }
 
 .BreakthroughSystem {
@@ -52,6 +91,8 @@ body {
     font-size: 40px;
     font-weight: bold;
     border-radius: 10px;
+    position: relative;
+    top: 10px;
 }
 
 .RebirthSystem {
@@ -62,6 +103,8 @@ body {
     font-size: 40px;
     font-weight: bold;
     border-radius: 10px;
+    position: relative;
+    top: 10px;
 }
 
 .ManualSave {
@@ -72,6 +115,8 @@ body {
     font-size: 40px;
     font-weight: bold;
     border-radius: 10px;
+    position: relative;
+    top: 10px;
 }
 
 .Datareset {
@@ -82,9 +127,65 @@ body {
     font-size: 40px;
     font-weight: bold;
     border-radius: 10px;
+    position: relative;
+    top: 10px;
 }
 
-.PassiveGain {
+
+.cultivateMenu {
+    background-color: #ffd29f;
+    height: fit-content;
+    width: fit-content;
+    font-family: "Ink Free";
+    font-size: 40px;
+    font-weight: bold;
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    
+    
+
+}
+
+.shopMenu {
+    background-color: #ffd29f;
+    height: fit-content;
+    width: fit-content;
+    font-family: "Ink Free";
+    font-size: 40px;
+    font-weight: bold;
+    position: absolute;
+    top: 0px;
+    left: 210px;
+}
+
+.combatMenu {
+    background-color: #ffd29f;
+    height: fit-content;
+    width: fit-content;
+    font-family: "Ink Free";
+    font-size: 40px;
+    font-weight: bold;
+    position: absolute;
+    top: 0px;
+    left: 320px;
+}
+
+.statsMenu {
+    background-color: #ffd29f;
+    height: fit-content;
+    width: fit-content;
+    font-family: "Ink Free";
+    font-size: 40px;
+    font-weight: bold;
+    position: absolute;
+    top: 0px;
+    left: 480px;
+}
+    
+
+
+.Ibumetin {
     background-color: #ffd29f;
     height: fit-content;
     width: fit-content;
@@ -92,4 +193,52 @@ body {
     font-size: 40px;
     font-weight: bold;
     border-radius: 10px;
+    position: relative;
+    top: 10px;
 }
+
+
+
+.cultivateMenu:active {
+    background-color: #8a8989;
+
+}
+
+
+.Thugcombat {
+    background-color: #ffd29f;
+    height: fit-content;
+    width: fit-content;
+    font-family: "Ink Free";
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 10px;
+    position: relative;
+    top: 10px;   
+}
+
+.Health {
+    background-color: #ffd29f;
+    height: fit-content;
+    width: fit-content;
+    font-family: "Ink Free";
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 10px;
+    position: relative;
+    top: 10px;   
+}
+
+.Attack {
+    background-color: #ffd29f;
+    height: fit-content;
+    width: fit-content;
+    font-family: "Ink Free";
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 10px;
+    position: relative;
+    top: 10px;   
+}
+
+
