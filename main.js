@@ -68,7 +68,7 @@ function Rebirth() {
         document.getElementById("ManualUpgrade").innerHTML = "Buy cultivation manual (Level " + ManualAmount + ") Cost: " + ManualCost +" Qi";
         document.getElementById("PassiveGain").innerHTML = (ManualAmount + QiPerClickLevel) + " Qi/s";
         document.getElementById("perClickUpgrade").innerHTML = "Strenghten soul realm (Level " + QiPerClickLevel + ") Cost: " + QiPerClickCost + " Qi";
-        document.getElementById("BreakthroughSystem").innerHTML = "Break sthrough to next realm "+ "(Level " + BreakthroughStage + ")" + " Cost: " + BreakthroughCost + " Qi";
+        document.getElementById("BreakthroughSystem").innerHTML = "Break through to next realm "+ "(Level " + BreakthroughStage + ")" + " Cost: " + BreakthroughCost + " Qi";
      }   
 }
 
