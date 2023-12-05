@@ -64,9 +64,9 @@ function Rebirth() {
         BreakthroughStage = 1
         BreakthroughCost = 1000 
         document.getElementById("qicultivated").innerHTML = Qi + " Qi";
-        document.getElementById("RebirthSystem").innerHTML = "Rebirth" + "(level" + RebirthStage + ")" + "Cost: " + RebirthCost + " Qi";
+        document.getElementById("RebirthSystem").innerHTML = "Rebirth" + " (level " + RebirthStage + ") Cost: " + RebirthCost + " Qi";
         document.getElementById("ManualUpgrade").innerHTML = "Buy cultivation manual (Level " + ManualAmount + ") Cost: " + ManualCost +" Qi";
-        document.getElementById("PassiveGain").innerHTML = (ManualAmount + QiPerClick) + " Qi/s";
+        document.getElementById("PassiveGain").innerHTML = (ManualAmount + QiPerClickLevel) + " Qi/s";
         document.getElementById("perClickUpgrade").innerHTML = "Strenghten soul realm (Level " + QiPerClick + ") Cost: " + QiPerClickCost + " Qi";
         document.getElementById("BreakthroughSystem").innerHTML = "Break through to next realm "+ "(Level " + BreakthroughStage + ")" + " Cost: " + BreakthroughCost + " Qi";
      }   
