@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Supah cultivator</title>
-    <script src="main.js" charset="utf=8" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="Style.css">
-</head>
-<body>
-    <p id="qicultivated" class="qicultivated">0 Qi</p>
-    <div id="navigateButtons">
-        <button onclick="tab('cultivateMenu')" class="cultivateMenu">Cultivate</button>
-        <button onclick="tab('shopMenu')" class="shopMenu" class="active">Shop</button>
-        <button onclick="tab('combatMenu')" class="combatMenu">Combat</button>
-        <button onclick="tab('statsMenu')" class="statsMenu">Stats</button>
-    </div>
-    <div id="cultivateMenu">
-        <button onclick="cultivate()" id="cultivate" title="Gives Qi" class="cultivate">Cultivate</button>   
-        <button onclick="buyQiPerClick()" id="perClickUpgrade" title="Increases amount of Qi gained by cultivating" class="perClickUpgrade">Strengthen soul realm (Level 1) Cost: 10 Qi</button>
-        <button onclick="buyManual()" id="ManualUpgrade" title="Adds 1 Qi gain/s per manual" class="ManualUpgrade">Buy cultivation manual (Level 1) Cost: 4 Qi</button>
-        <button onclick="Breakthrough()" id="BreakthroughSystem" title="Multiplies your passive Qi gain by its level" class="BreakthroughSystem">Breakthrough to the next realm Cost: 1000 Qi</button>
-           <button onclick="Rebirth()" id="RebirthSystem" title="Resets all of your upgrades and double everything by its level" class="RebirthSystem">Rebirth Cost: 10000 Qi</button>
-        <button onclick="Save()" id="ManualSave" title="Saves your data" class="ManualSave">Save game</button>
-        <button onclick ="resetData()" id ="Datareset" title="Resets your data" class="Datareset">Reset data</button>
-    </div>
-    <div id="shopMenu">
-        <button onclick="buyIbumetin()" id="Ibumetin" class="Ibumetin">Buy Ibumetin Cost: 1000 Soulshards</button>    
-    </div>
-    <div id="combatMenu">
-           <button onclick="fightThug()" id="Thugcombat" class="Thugcombat">Fight thug</button>
-    </div>
-    <div id="statsMenu">
-        <p id="Health" class="Health">Health: </p>
-        <p id="Attack" class="Attack">Attack:</p>
-    </div>
-    <p id="PassiveGain" title="Shows how much Qi you gain every second" class="PassiveGain">0 Qi/s</p>
-    <p id="Soulshards" title="Shows how many soulshards you have" class="Soulshards">0 Soulshards</p>
-</body>
+    <head>
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Supah cultivator</title>
+        <script src="main.js" charset="utf=8" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="Style.css">
+    </head>
+    <body>
+        <p id="qicultivated" class="qicultivated">0 Qi</p>
+        <div id="navigateButtons">
+            <button onclick="tab('cultivateMenu')" class="cultivateMenu">Cultivate</button>
+            <button onclick="tab('shopMenu')" class="shopMenu" class="active">Shop</button>
+            <button onclick="tab('combatMenu')" class="combatMenu">Combat</button>
+            <button onclick="tab('statsMenu')" class="statsMenu">Stats</button>
+        </div>
+        <div id="cultivateMenu">
+            <button onclick="cultivate()" id="cultivate" title="Gives Qi" class="cultivate">Cultivate</button>   
+            <button onclick="buyQiPerClick()" id="perClickUpgrade" title="Increases amount of Qi gained by cultivating" class="perClickUpgrade">Strengthen soul realm (Level 1) Cost: 10 Qi</button>
+            <button onclick="buyManual()" id="ManualUpgrade" title="Adds 1 Qi gain/s per manual" class="ManualUpgrade">Buy cultivation manual (Level 1) Cost: 4 Qi</button>
+            <button onclick="Rebirth()" id="RebirthSystem" title="Resets all of your upgrades and double everything by its level" class="RebirthSystem">Rebirth Cost: 10000 Qi</button>
+            <button onclick="Save()" id="ManualSave" title="Saves your data" class="ManualSave">Save game</button>
+            <button onclick ="resetData()" id ="Datareset" title="Resets your data" class="Datareset">Reset data</button>
+        </div>
+        <div id="shopMenu">
+            <button onclick="buyIbumetin()" id="Ibumetin" class="Ibumetin">Buy Ibumetin Cost: 10 Soulshards</button>    
+        </div>
+        <div id="combatMenu">
+            <button onclick="fightThug(); move()" id="Thugcombat" class="Thugcombat">Fight thug</button>
+            <div id="myProgress">
+                <div id="myBar"></div>
+            </div>
+        </div>
+        <div id="statsMenu">
+            <button onclick="Breakthrough()" id="BreakthroughSystem" title="Multiplies your passive Qi gain by its level" class="BreakthroughSystem">Begin your cultivation journey Cost: 1000 Qi</button>
+            <p id="Health" class="Health">Health: </p>
+            <p id="Attack" class="Attack">Attack:</p>
+            <p id="Realm" title="Shows your realm " class="Realm">Realm: None</p>
+        </div>
+        <p id="PassiveGain" title="Shows how much Qi you gain every second" class="PassiveGain">0 Qi/s</p>
+        <p id="Soulshards" title="Shows how many soulshards you have" class="Soulshards">0 Soulshards</p>
+        
+    </body>
 </html>
