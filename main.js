@@ -1,7 +1,7 @@
 
 var Qi = 0
 var QiPerClick = 10
-var QiPerClickLevel = 1
+var QiPerClickLevel = 0
 var QiPerClickCost = 10
 var ManualAmount = 0
 var ManualCost = 4
@@ -20,16 +20,34 @@ var Thug = {
     Soulshard:1
 }
 
+var i = 0;
+function move() {
+  if (i == 0) {
+    i = 1;
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+      if (width >= 100) {
+        clearInterval(id);
+        i = 0;
+      } else {
+        width++;
+        elem.style.width = width + "%";
+      }
+    }
+  }
+}
+
+
+
 function fightThug() {
-    
     Thug.Hp -= Attack
     if (Thug.Hp <= 0) {
         Soulshards += Thug.Soulshard
         document.getElementById("Soulshards").innerHTML = Soulshards + " soulshards"
-    }
-    
+    } 
 }
-
 
 function cultivate() {
     Qi += QiPerClick*RebirthStage
@@ -59,9 +77,11 @@ function buyManual() {
 }
 
 function buyIbumetin() {
-    if (Soulshards >= 1000) {
-        localStorage.removeItem("SupahcultivatorSave")
-        location.reload()
+    if (Soulshards >= 10) {
+        Soulshards -= 10;
+        Attack += 1;
+        document.getElementById("Attack").innerHTML = "Attack: " + Attack;
+        document.getElementById("Soulshards").innerHTML = Soulshards + " soulshards"
     }
 }
 
@@ -73,6 +93,7 @@ function Breakthrough() {
         BreakthroughCost *= 2
         document.getElementById("qicultivated").innerHTML = Qi + " Qi"
         document.getElementById("BreakthroughSystem").innerHTML = "Break through to next realm (Level "+ (BreakthroughStage) + ") Cost: " + BreakthroughCost + " Qi"
+        document.getElementById("Realm").innerHTML = "Realm: " + BreakthroughStage
 
     }
 }
@@ -83,9 +104,9 @@ function Rebirth() {
         RebirthStage += 1;
         RebirthCost *=2.5;
         Qi = 0
-        QiPerClick = 100
+        QiPerClick = 10
         QiPerClickCost = 10
-        QiPerClickLevel = 1
+        QiPerClickLevel = 0
         ManualAmount = 0
         ManualCost = 4
         BreakthroughStage = 1
@@ -94,16 +115,23 @@ function Rebirth() {
         document.getElementById("qicultivated").innerHTML = Qi + " Qi";
         document.getElementById("RebirthSystem").innerHTML = "Rebirth" + " (level " + RebirthStage + ") Cost: " + RebirthCost + " Qi";
         document.getElementById("ManualUpgrade").innerHTML = "Buy cultivation manual (Level " + ManualAmount + ") Cost: " + ManualCost +" Qi";
-        document.getElementById("PassiveGain").innerHTML = (ManualAmount + QiPerClickLevel) + " Qi/s";
+        document.getElementById("PassiveGain").innerHTML = (ManualAmount + QiPerClick) + " Qi/s";
         document.getElementById("perClickUpgrade").innerHTML = "Strenghten soul realm (Level " + QiPerClickLevel + ") Cost: " + QiPerClickCost + " Qi";
         document.getElementById("BreakthroughSystem").innerHTML = "Break through to next realm "+ "(Level " + BreakthroughStage + ")" + " Cost: " + BreakthroughCost + " Qi";
      }   
 }
 
 function PassiveQiGain() {
-    Qi += (((ManualAmount + QiPerClick)*(BreakthroughMult*RebirthStage)));
+    Qi += (ManualAmount + QiPerClick);
     document.getElementById("qicultivated").innerHTML = Qi + " Qi"
-    document.getElementById("PassiveGain").innerHTML = (((ManualAmount + QiPerClick)*(BreakthroughMult*RebirthStage))) + " Qi/s"
+    document.getElementById("PassiveGain").innerHTML = (ManualAmount + QiPerClick) + " Qi/s"
+}
+
+function OfflineQiGain() {
+    diff = Date.now() - lastTick;
+    lastTick = Date.now();
+    Qi += Math.round((ManualAmount + QiPerClick)*diff)
+    document.getElementById("qicultivated").innerHTML = Qi + " Qi"
 }
 
 function tab(tab) {
@@ -127,8 +155,8 @@ function Save() {
         BreakthroughCost: BreakthroughCost,
         RebirthStage: RebirthStage,
         RebirthCost: RebirthCost, 
-        Health:Health,
-        Attack:Attack,
+        Health: Health,
+        Attack: Attack,
         Soulshards:Soulshards 
     }
     localStorage.setItem("SupahcultivatorSave", JSON.stringify(gamesave))
@@ -137,6 +165,7 @@ function Save() {
 function resetData() {
     localStorage.removeItem("SupahcultivatorSave")
     location.reload()
+    tab("cultivateMenu");
 }
 
 
@@ -171,6 +200,7 @@ function loadgame() {
 
 window.onload = function() {
     loadgame();
+    OfflineQiGain()
     tab("cultivateMenu");
     document.getElementById("ManualUpgrade").innerHTML = "Buy cultivation manual (Level " + (ManualAmount/RebirthStage) + ") Cost: " + ManualCost +" Qi";
     document.getElementById("PassiveGain").innerHTML = (ManualAmount + QiPerClick) + " Qi/s";
@@ -181,4 +211,5 @@ window.onload = function() {
     document.getElementById("Health").innerHTML = "Health: " + Health;
     document.getElementById("Attack").innerHTML = "Attack: " + Attack;
     document.getElementById("Soulshards").innerHTML = Soulshards + " soulshards"
+    document.getElementById("Realm").innerHTML = "Realm: " + BreakthroughStage
 }

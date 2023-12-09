@@ -1,5 +1,7 @@
 body {
     background-image: url(https://www.creativefabrica.com/wp-content/uploads/2023/05/08/Old-Vintage-Paper-Textured-background-Graphics-69135024-1.jpg);
+    width: 100vw;
+    height: 100vh;
 }
 
 .cultivate {
@@ -105,6 +107,19 @@ body {
     border-radius: 10px;
     position: relative;
     top: 10px;
+}
+
+.Realm {
+    background-color: #ffd29f;
+    height: fit-content;
+    width: fit-content;
+    font-family: "Ink Free";
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 10px;
+    position: relative;
+   
+    
 }
 
 .ManualSave {
@@ -241,4 +256,17 @@ body {
     top: 10px;   
 }
 
-
+#myProgress {
+    width: 100%;
+    background-color: grey;
+    position: relative;
+    left: 100px;
+  }
+  
+#myBar {
+    width: 1%;
+    height: 30px;
+    background-color: green;
+    position: absolute;
+    left: 100px;
+  }
