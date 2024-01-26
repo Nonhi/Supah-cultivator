@@ -14,7 +14,11 @@ var lastTick = Date.now()
 var Health = 100
 var Attack = 50
 var Soulshards = 0
- 
+//var SectName = prompt("Enter sect name")
+//var FirstName = prompt("Enter first name")
+//var LastName = prompt("Enter last name")
+
+
 var Thug = {
     Hp: 50,
     Soulshard:1
@@ -40,6 +44,9 @@ function move() {
 }
 
 
+
+
+   
 
 function fightThug() {
     Thug.Hp -= Attack
@@ -196,9 +203,12 @@ function loadgame() {
     if (typeof savedgame.Attack !== "undefined") Attack = savedgame.Attack;
     if (typeof savedgame.Health !== "undefined") Health = savedgame.Health;
     if (typeof savedgame.Soulshards !== "undefined") Soulshards = savedgame.Soulshards;
+    if (typeof savedgame.FirstName !== "undefined") FirstName = savedgame.FirstName;
+    if (typeof savedgame.LastName !== "undefined") LastName = savedgame.LastName;
 }
 
 window.onload = function() {
+    document.getElementById("Name").innerHTML = FirstName + " " + LastName;
     loadgame();
     OfflineQiGain()
     tab("cultivateMenu");
@@ -210,6 +220,7 @@ window.onload = function() {
     document.getElementById("RebirthSystem").innerHTML = "Rebirth" + "(level" + RebirthStage + ")" + "Cost: " + RebirthCost + " Qi";
     document.getElementById("Health").innerHTML = "Health: " + Health;
     document.getElementById("Attack").innerHTML = "Attack: " + Attack;
-    document.getElementById("Soulshards").innerHTML = Soulshards + " soulshards"
-    document.getElementById("Realm").innerHTML = "Realm: " + BreakthroughStage
+    document.getElementById("Soulshards").innerHTML = Soulshards + " soulshards";
+    document.getElementById("Realm").innerHTML = "Realm: " + BreakthroughStage;
+    
 }

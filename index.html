@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
+        <p id="qicultivated" class="qicultivated">0 Qi</p>
         <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Supah cultivator</title>
         <script src="main.js" charset="utf=8" type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="Style.css">
     </head>
     <body>
-        <p id="qicultivated" class="qicultivated">0 Qi</p>
+        <img src="C:\Users\kasutaja\Documents\SCLogo.png" id="SCLogo" class="SCLogo">
+        <p id="Name" class="Name"></p>
         <div id="navigateButtons">
             <button onclick="tab('cultivateMenu')" class="cultivateMenu">Cultivate</button>
-            <button onclick="tab('shopMenu')" class="shopMenu" class="active">Shop</button>
+            <button onclick="tab('shopMenu')" class="shopMenu" class="active">
+                <img src="C:\Users\kasutaja\Desktop\Aseprite.v1.3\SCShop.png" width="150px" height="90px">
+            </button>
             <button onclick="tab('combatMenu')" class="combatMenu">Combat</button>
             <button onclick="tab('statsMenu')" class="statsMenu">Stats</button>
         </div>

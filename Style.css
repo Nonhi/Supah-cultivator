@@ -12,8 +12,9 @@ body {
    font-size: 40px;
    font-weight: 600;
    border-radius: 10px;
-   position: relative;
-   top: 10px;
+   position: fixed;
+   top: 200px;
+   
 }
 
 .qicultivated {
@@ -26,9 +27,9 @@ body {
     outline-width: 2px;
     outline-color: rgb(253, 229, 7);
     outline-style: solid;
-    position: relative;
-    top: 20px;
-    right: 3px;
+    position: Absolute;
+    top: 50px;
+   
 }
 
 .PassiveGain {
@@ -38,9 +39,9 @@ body {
     font-size: 50px;
     font-weight: normal;
     border-radius: 10px;
-    position: absolute;
-    left: 280px;
-    top: 20px;
+    position: Absolute;
+    left: 250px;
+    top: 50px;
     outline-width: 2px;
     outline-color: rgb(253, 97, 7);
     outline-style: solid;
@@ -53,9 +54,9 @@ body {
     font-size: 50px;
     font-weight: normal;
     border-radius: 10px;
-    position: absolute;
-    left: 480px;
-    top: 20px;
+    position: fixed;
+    left: 450px;
+    top: 50px;
     outline-width: 2px;
     outline-color: rgb(85, 253, 7);
     outline-style: solid;
@@ -69,8 +70,9 @@ body {
     font-size: 40px;
     font-weight: bold;
     border-radius: 10px;
-    position: relative;
-    top: 10px;
+    position: fixed;
+    top: 200px;
+    left: 200px;
 }
 
 .ManualUpgrade {
@@ -81,8 +83,9 @@ body {
     font-size: 40px;
     font-weight: bold;
     border-radius: 10px;
-    position: relative;
-    top: 10px;
+    position: fixed;
+    top: 200px;
+    left: 1000px;
 }
 
 .BreakthroughSystem {
@@ -93,8 +96,8 @@ body {
     font-size: 40px;
     font-weight: bold;
     border-radius: 10px;
-    position: relative;
-    top: 10px;
+    position: fixed;
+    top: 200px;
 }
 
 .RebirthSystem {
@@ -105,8 +108,9 @@ body {
     font-size: 40px;
     font-weight: bold;
     border-radius: 10px;
-    position: relative;
-    top: 10px;
+    position: fixed;
+    top: 260px;
+    
 }
 
 .Realm {
@@ -117,7 +121,7 @@ body {
     font-size: 40px;
     font-weight: bold;
     border-radius: 10px;
-    position: relative;
+    position: fixed;
    
     
 }
@@ -130,8 +134,9 @@ body {
     font-size: 40px;
     font-weight: bold;
     border-radius: 10px;
-    position: relative;
-    top: 10px;
+    position: fixed;
+    top: 260px;
+    left: 550px;
 }
 
 .Datareset {
@@ -142,8 +147,9 @@ body {
     font-size: 40px;
     font-weight: bold;
     border-radius: 10px;
-    position: relative;
-    top: 10px;
+    position: fixed;
+    top: 260px;
+    left: 770px;
 }
 
 
@@ -154,7 +160,7 @@ body {
     font-family: "Ink Free";
     font-size: 40px;
     font-weight: bold;
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 20px;
     
@@ -163,15 +169,12 @@ body {
 }
 
 .shopMenu {
-    background-color: #ffd29f;
-    height: fit-content;
-    width: fit-content;
-    font-family: "Ink Free";
-    font-size: 40px;
-    font-weight: bold;
-    position: absolute;
-    top: 0px;
-    left: 210px;
+    position: relative;
+    top: -214px;
+    left: 180px;
+    background-color: transparent;
+    border: none;
+    
 }
 
 .combatMenu {
@@ -181,7 +184,7 @@ body {
     font-family: "Ink Free";
     font-size: 40px;
     font-weight: bold;
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 320px;
 }
@@ -193,7 +196,7 @@ body {
     font-family: "Ink Free";
     font-size: 40px;
     font-weight: bold;
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 480px;
 }
@@ -208,8 +211,8 @@ body {
     font-size: 40px;
     font-weight: bold;
     border-radius: 10px;
-    position: relative;
-    top: 10px;
+    position: fixed;
+    top: 200px;
 }
 
 
@@ -228,8 +231,8 @@ body {
     font-size: 40px;
     font-weight: bold;
     border-radius: 10px;
-    position: relative;
-    top: 10px;   
+    position: fixed;
+    top: 200px;   
 }
 
 .Health {
@@ -240,7 +243,7 @@ body {
     font-size: 40px;
     font-weight: bold;
     border-radius: 10px;
-    position: relative;
+    position: fixed;
     top: 10px;   
 }
 
@@ -252,14 +255,14 @@ body {
     font-size: 40px;
     font-weight: bold;
     border-radius: 10px;
-    position: relative;
+    position: fixed;
     top: 10px;   
 }
 
 #myProgress {
     width: 100%;
     background-color: grey;
-    position: relative;
+    position: fixed;
     left: 100px;
   }
   
@@ -267,6 +270,35 @@ body {
     width: 1%;
     height: 30px;
     background-color: green;
-    position: absolute;
+    position: fixed;
     left: 100px;
   }
+
+.EnterName {
+    background-color: #ffd29f;
+    height: fit-content;
+    width: fit-content;
+    font-family: "Ink Free";
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 10px;
+    position: fixed;
+    top: 10px; 
+}
+
+.Name {
+    background-color: #ffd29f;
+    height: fit-content;
+    width: fit-content;
+    font-family: "Ink Free";
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 10px;
+    position: fixed;
+    top: 100px; 
+}
+
+.SCLogo {
+    position: relative;
+    left: 800px;
+}
